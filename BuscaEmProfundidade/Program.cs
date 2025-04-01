@@ -1,5 +1,8 @@
-using System;
+Ôªøusing System;
 using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace BuscaEmProfundidade
 {
@@ -44,7 +47,7 @@ namespace BuscaEmProfundidade
 
             if (!grafo.ContainsKey(partida) || !grafo.ContainsKey(destino))
             {
-                Console.WriteLine("Cidade inv·lida!");
+                Console.WriteLine("Cidade inv√°lida!");
                 return;
             }
 
@@ -58,7 +61,7 @@ namespace BuscaEmProfundidade
             }
             else
             {
-                Console.WriteLine("Caminho n„o encontrado.");
+                Console.WriteLine("Caminho n√£o encontrado.");
             }
 
             Console.ReadKey();
