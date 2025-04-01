@@ -63,6 +63,8 @@ namespace BuscaEmProfundidade
             {
                 Console.WriteLine("Caminho não encontrado.");
             }
+            
+            Console.ReadKey();
         }
 
         static bool DFS(Nodo atual, Nodo destino, HashSet<Nodo> visitados, List<string> caminho)
