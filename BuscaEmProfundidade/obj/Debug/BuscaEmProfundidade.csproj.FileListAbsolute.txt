@@ -1,0 +1,16 @@
+C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\bin\Debug\BuscaEmProfundidade.exe.config
+C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\bin\Debug\BuscaEmProfundidade.exe
+C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\bin\Debug\BuscaEmProfundidade.pdb
+C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.csproj.AssemblyReference.cache
+C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.csproj.SuggestedBindingRedirects.cache
+C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.csproj.CoreCompileInputs.cache
+C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.exe
+C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.pdb
+C:\Users\aluno\Desktop\BuscaEmProfundidade-main\BuscaEmProfundidade-main\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.csproj.AssemblyReference.cache
+C:\Users\aluno\Desktop\BuscaEmProfundidade-main\BuscaEmProfundidade-main\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.csproj.SuggestedBindingRedirects.cache
+C:\Users\aluno\Desktop\BuscaEmProfundidade-main\BuscaEmProfundidade-main\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.csproj.CoreCompileInputs.cache
+C:\Users\aluno\Desktop\BuscaEmProfundidade-main\BuscaEmProfundidade-main\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.exe
+C:\Users\aluno\Desktop\BuscaEmProfundidade-main\BuscaEmProfundidade-main\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.pdb
+C:\Users\aluno\Desktop\BuscaEmProfundidade-main\BuscaEmProfundidade-main\BuscaEmProfundidade\bin\Debug\BuscaEmProfundidade.exe.config
+C:\Users\aluno\Desktop\BuscaEmProfundidade-main\BuscaEmProfundidade-main\BuscaEmProfundidade\bin\Debug\BuscaEmProfundidade.exe
+C:\Users\aluno\Desktop\BuscaEmProfundidade-main\BuscaEmProfundidade-main\BuscaEmProfundidade\bin\Debug\BuscaEmProfundidade.pdb
