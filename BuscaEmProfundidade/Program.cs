@@ -1,48 +1,89 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BuscaEmProfundidade
+namespace ConsoleApp1;
+
+class Program
 {
-    class Program
+    static void Main(string[] args)
     {
-        static void Main(string[] args)
+        Dictionary<string, Nodo> grafo = new Dictionary<string, Nodo>();
+        string[] cidades = { "Oradea", "Zerind", "Arad", "Timisoara", "Lugoj", "Mehadia", "Drobeta", "Craiova", "Rimnicu Vilcea", "Sibiu", "Fagaras", "Pitesti", "Bucareste", "Giurgiu", "Urziceni", "Hirsova", "Eforie", "Vaslui", "Iasi", "Neamt" };
+
+        foreach (var cidade in cidades)
         {
-            // Criação dos nós
-            Nodo a = new Nodo("A");
-            Nodo b = new Nodo("B");
-            Nodo c = new Nodo("C");
-            Nodo d = new Nodo("D");
-            Nodo e = new Nodo("E");
-            Nodo f = new Nodo("F");
-
-            // Estabelecendo as conexões (arestas)
-            a.Vizinhos.Add(b);
-            a.Vizinhos.Add(c);
-            b.Vizinhos.Add(d);
-            b.Vizinhos.Add(e);
-            c.Vizinhos.Add(f);
-            e.Vizinhos.Add(f);
-
-            Nodo inicio = a;
-            Console.WriteLine($"Busca em Profundidade a partir do nó {inicio.Id}: ");
-            DFS(inicio, new HashSet<Nodo>());
-            Console.ReadKey();
+            grafo[cidade] = new Nodo(cidade);
         }
 
-        static void DFS(Nodo nodo, HashSet<Nodo> visitados)
+        grafo["Oradea"].Vizinhos.Add(grafo["Zerind"]);
+        grafo["Oradea"].Vizinhos.Add(grafo["Sibiu"]);
+        grafo["Zerind"].Vizinhos.Add(grafo["Arad"]);
+        grafo["Arad"].Vizinhos.Add(grafo["Timisoara"]);
+        grafo["Timisoara"].Vizinhos.Add(grafo["Lugoj"]);
+        grafo["Lugoj"].Vizinhos.Add(grafo["Mehadia"]);
+        grafo["Mehadia"].Vizinhos.Add(grafo["Drobeta"]);
+        grafo["Drobeta"].Vizinhos.Add(grafo["Craiova"]);
+        grafo["Craiova"].Vizinhos.Add(grafo["Pitesti"]);
+        grafo["Craiova"].Vizinhos.Add(grafo["Rimnicu Vilcea"]);
+        grafo["Rimnicu Vilcea"].Vizinhos.Add(grafo["Sibiu"]);
+        grafo["Sibiu"].Vizinhos.Add(grafo["Fagaras"]);
+        grafo["Fagaras"].Vizinhos.Add(grafo["Bucareste"]);
+        grafo["Pitesti"].Vizinhos.Add(grafo["Bucareste"]);
+        grafo["Bucareste"].Vizinhos.Add(grafo["Giurgiu"]);
+        grafo["Bucareste"].Vizinhos.Add(grafo["Urziceni"]);
+        grafo["Urziceni"].Vizinhos.Add(grafo["Hirsova"]);
+        grafo["Hirsova"].Vizinhos.Add(grafo["Eforie"]);
+        grafo["Urziceni"].Vizinhos.Add(grafo["Vaslui"]);
+        grafo["Vaslui"].Vizinhos.Add(grafo["Iasi"]);
+        grafo["Iasi"].Vizinhos.Add(grafo["Neamt"]);
+
+        Console.Write("Digite a cidade de partida: ");
+        string partida = Console.ReadLine();
+        Console.Write("Digite a cidade de destino: ");
+        string destino = Console.ReadLine();
+
+        if (!grafo.ContainsKey(partida) || !grafo.ContainsKey(destino))
         {
-            if (visitados.Contains(nodo)) return;
+            Console.WriteLine("Cidade inválida!");
+            return;
+        }
 
-            visitados.Add(nodo);
-            Console.WriteLine(nodo.Id);
+        Console.WriteLine($"Busca em Profundidade de {partida} para {destino}: ");
+        HashSet<Nodo> visitados = new HashSet<Nodo>();
+        List<string> caminho = new List<string>();
+        if (DFS(grafo[partida], grafo[destino], visitados, caminho))
+        {
+            caminho.Reverse();
+            Console.WriteLine(" -> ".Join(caminho));
+        }
+        else
+        {
+            Console.WriteLine("Caminho não encontrado.");
+        }
+    }
 
-            foreach (var vizinho in nodo.Vizinhos)
+    static bool DFS(Nodo atual, Nodo destino, HashSet<Nodo> visitados, List<string> caminho)
+    {
+        if (visitados.Contains(atual)) return false;
+        visitados.Add(atual);
+        
+        if (atual == destino)
+        {
+            caminho.Add(atual.Id);
+            return true;
+        }
+
+        foreach (var vizinho in atual.Vizinhos)
+        {
+            if (DFS(vizinho, destino, visitados, caminho))
             {
-                DFS(vizinho, visitados);
+                caminho.Add(atual.Id);
+                return true;
             }
         }
+        return false;
     }
 }
