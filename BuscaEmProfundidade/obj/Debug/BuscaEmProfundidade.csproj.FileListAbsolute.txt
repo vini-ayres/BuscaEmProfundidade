@@ -1,8 +1,0 @@
-C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\bin\Debug\BuscaEmProfundidade.exe.config
-C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\bin\Debug\BuscaEmProfundidade.exe
-C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\bin\Debug\BuscaEmProfundidade.pdb
-C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.csproj.AssemblyReference.cache
-C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.csproj.SuggestedBindingRedirects.cache
-C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.csproj.CoreCompileInputs.cache
-C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.exe
-C:\ESTUDOS-IA\BuscaEmProfundidade\BuscaEmProfundidade\obj\Debug\BuscaEmProfundidade.pdb
