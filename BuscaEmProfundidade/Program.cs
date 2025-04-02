@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -39,28 +39,49 @@ namespace BuscaEmProfundidade
             grafo["Iasi"].Vizinhos.AddRange(new[] { grafo["Vaslui"], grafo["Neamt"] });
             grafo["Neamt"].Vizinhos.Add(grafo["Iasi"]);
 
-            Console.Write("Digite a cidade de partida: ");
-            string partida = Console.ReadLine();
-            Console.Write("Digite a cidade de destino: ");
-            string destino = Console.ReadLine();
+            while (true)
+            {
+                Console.WriteLine($"Cidades da Romênia: \n {string.Join(" | ", cidades)} \n \n");
+                string partida, destino;
+                while (true)
+                {
+                    Console.Write("Digite a cidade de partida: ");
+                    partida = Console.ReadLine();
+                    if (grafo.ContainsKey(partida))
+                        break;
+                    Console.WriteLine("Cidade inválida! Tente novamente.");
+                }
 
-            if (!grafo.ContainsKey(partida) || !grafo.ContainsKey(destino))
-            {
-                Console.WriteLine("Cidade inválida!");
-                return;
-            }
+                while (true)
+                {
+                    Console.Write("Digite a cidade de destino: ");
+                    destino = Console.ReadLine();
+                    if (grafo.ContainsKey(destino))
+                        break;
+                    Console.WriteLine("Cidade inválida! Tente novamente.");
+                }
 
-            Console.WriteLine($"Busca em Profundidade de {partida} para {destino}: ");
-            HashSet<Nodo> visitados = new HashSet<Nodo>();
-            List<string> caminho = new List<string>();
-            if (DFS(grafo[partida], grafo[destino], visitados, caminho))
-            {
-                caminho.Reverse();
-                Console.WriteLine(string.Join(" -> ", caminho));
-            }
-            else
-            {
-                Console.WriteLine("Caminho não encontrado.");
+                Console.WriteLine($"Busca em Profundidade de {partida} para {destino}: ");
+                HashSet<Nodo> visitados = new HashSet<Nodo>();
+                List<string> caminho = new List<string>();
+                if (DFS(grafo[partida], grafo[destino], visitados, caminho))
+                {
+                    caminho.Reverse();
+                    Console.WriteLine(string.Join(" -> ", caminho));
+                }
+                else
+                {
+                    Console.WriteLine("Caminho não encontrado.");
+                }
+
+                Console.Write("\nDeseja fazer outra busca? (s/n): ");
+                string resposta = Console.ReadLine().Trim().ToLower();
+                if (resposta != "s")
+                {
+                    Console.WriteLine("Encerrando o programa...");
+                    Console.ReadKey();
+                    break;
+                }
             }
         }
 
