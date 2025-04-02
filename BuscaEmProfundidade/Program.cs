@@ -18,27 +18,26 @@ namespace BuscaEmProfundidade
                 grafo[cidade] = new Nodo(cidade);
             }
 
-            grafo["Oradea"].Vizinhos.Add(grafo["Zerind"]);
-            grafo["Oradea"].Vizinhos.Add(grafo["Sibiu"]);
-            grafo["Zerind"].Vizinhos.Add(grafo["Arad"]);
-            grafo["Arad"].Vizinhos.Add(grafo["Timisoara"]);
-            grafo["Timisoara"].Vizinhos.Add(grafo["Lugoj"]);
-            grafo["Lugoj"].Vizinhos.Add(grafo["Mehadia"]);
-            grafo["Mehadia"].Vizinhos.Add(grafo["Drobeta"]);
-            grafo["Drobeta"].Vizinhos.Add(grafo["Craiova"]);
-            grafo["Craiova"].Vizinhos.Add(grafo["Pitesti"]);
-            grafo["Craiova"].Vizinhos.Add(grafo["Rimnicu Vilcea"]);
-            grafo["Rimnicu Vilcea"].Vizinhos.Add(grafo["Sibiu"]);
-            grafo["Sibiu"].Vizinhos.Add(grafo["Fagaras"]);
-            grafo["Fagaras"].Vizinhos.Add(grafo["Bucareste"]);
-            grafo["Pitesti"].Vizinhos.Add(grafo["Bucareste"]);
-            grafo["Bucareste"].Vizinhos.Add(grafo["Giurgiu"]);
-            grafo["Bucareste"].Vizinhos.Add(grafo["Urziceni"]);
-            grafo["Urziceni"].Vizinhos.Add(grafo["Hirsova"]);
-            grafo["Hirsova"].Vizinhos.Add(grafo["Eforie"]);
-            grafo["Urziceni"].Vizinhos.Add(grafo["Vaslui"]);
-            grafo["Vaslui"].Vizinhos.Add(grafo["Iasi"]);
-            grafo["Iasi"].Vizinhos.Add(grafo["Neamt"]);
+            grafo["Oradea"].Vizinhos.AddRange(new[] { grafo["Zerind"], grafo["Sibiu"] });
+            grafo["Zerind"].Vizinhos.AddRange(new[] { grafo["Oradea"], grafo["Arad"] });
+            grafo["Arad"].Vizinhos.AddRange(new[] { grafo["Zerind"], grafo["Sibiu"], grafo["Timisoara"] });
+            grafo["Timisoara"].Vizinhos.AddRange(new[] { grafo["Arad"], grafo["Lugoj"] });
+            grafo["Lugoj"].Vizinhos.AddRange(new[] { grafo["Timisoara"], grafo["Mehadia"] });
+            grafo["Mehadia"].Vizinhos.AddRange(new[] { grafo["Lugoj"], grafo["Drobeta"] });
+            grafo["Drobeta"].Vizinhos.AddRange(new[] { grafo["Mehadia"], grafo["Craiova"] });
+            grafo["Craiova"].Vizinhos.AddRange(new[] { grafo["Drobeta"], grafo["Rimnicu Vilcea"], grafo["Pitesti"] });
+            grafo["Rimnicu Vilcea"].Vizinhos.AddRange(new[] { grafo["Craiova"], grafo["Sibiu"], grafo["Pitesti"] });
+            grafo["Sibiu"].Vizinhos.AddRange(new[] { grafo["Oradea"], grafo["Arad"], grafo["Rimnicu Vilcea"], grafo["Fagaras"] });
+            grafo["Fagaras"].Vizinhos.AddRange(new[] { grafo["Sibiu"], grafo["Bucareste"] });
+            grafo["Pitesti"].Vizinhos.AddRange(new[] { grafo["Rimnicu Vilcea"], grafo["Craiova"], grafo["Bucareste"] });
+            grafo["Bucareste"].Vizinhos.AddRange(new[] { grafo["Fagaras"], grafo["Pitesti"], grafo["Giurgiu"], grafo["Urziceni"] });
+            grafo["Giurgiu"].Vizinhos.Add(grafo["Bucareste"]);
+            grafo["Urziceni"].Vizinhos.AddRange(new[] { grafo["Bucareste"], grafo["Vaslui"], grafo["Hirsova"] });
+            grafo["Hirsova"].Vizinhos.AddRange(new[] { grafo["Urziceni"], grafo["Eforie"] });
+            grafo["Eforie"].Vizinhos.Add(grafo["Hirsova"]);
+            grafo["Vaslui"].Vizinhos.AddRange(new[] { grafo["Urziceni"], grafo["Iasi"] });
+            grafo["Iasi"].Vizinhos.AddRange(new[] { grafo["Vaslui"], grafo["Neamt"] });
+            grafo["Neamt"].Vizinhos.Add(grafo["Iasi"]);
 
             Console.Write("Digite a cidade de partida: ");
             string partida = Console.ReadLine();
@@ -63,8 +62,6 @@ namespace BuscaEmProfundidade
             {
                 Console.WriteLine("Caminho não encontrado.");
             }
-
-            Console.ReadKey();
         }
 
         static bool DFS(Nodo atual, Nodo destino, HashSet<Nodo> visitados, List<string> caminho)
