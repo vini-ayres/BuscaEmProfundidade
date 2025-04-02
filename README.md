@@ -63,8 +63,7 @@ class Nodo
   - "Sibiu" conecta com "Fagaras", etc.
 
 ```csharp
-grafo["Oradea"].Vizinhos.Add(grafo["Zerind"]);
-grafo["Oradea"].Vizinhos.Add(grafo["Sibiu"]);
+grafo["Oradea"].Vizinhos.AddRange(new[] { grafo["Zerind"], grafo["Sibiu"] });
 ```
 
 ---
